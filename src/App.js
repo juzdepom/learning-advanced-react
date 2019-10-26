@@ -1,24 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Fragment } from 'react';
 import './App.css';
+
+const Temp = (props) => {
+  return(
+    //Fragment allows us to return multiple divs.
+    <Fragment>
+      <div>
+        {
+          props.greetings === 'hi'
+          //it also allows us to use curly brackets within curly brackets
+          ? <Fragment>&lt;div&gt;{props.greetings}&lt;div&gt;</Fragment>
+          : props.greetings
+        }
+      </div>
+      <div>Hello</div>
+    </Fragment>
+  
+  )
+}
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Temp greetings="hi"/>
     </div>
   );
 }
